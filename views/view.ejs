@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/view.css" rel="stylesheet" />
+  </head>
+  <body>
+    <%- include('includes/navigation.ejs') %>
+    <main>
+      <div class="post-details">
+        <div class="title-section">
+        <h1>Write a program that provides sum of two numbers in C.</h1>
+        </div>
+        <div class="code-section">
+          <h2>Code:</h2>
+          <pre>
+            <div class="code-box">
+              <button class="copy-button"><img src="../images/copy.png" alt="copy" class="copy-logo">Copy code</button>
+            </div>
+            <code class="code-language">
+             #include &lt;stdio.h&gt;
+             int main(){
+              int a,b;
+              printf("Enter first number:");
+              scanf(%d, &a);
+              printf("Enter second number:");
+              scanf(%d, &b);
+              int sum = a+b;
+              printf("The sum of %d and %d is: %d",a,b,sum);
+              return 0;
+  
+             }
+            </code></pre>
+        </div>
+  
+        <div class="description-section">
+          <h2>Description:</h2>
+          <div class="description">
+            <p>The program you provided is a simple C program that calculates the sum of two numbers entered by the user and displays the result.</br>
+  
+            Here's a step-by-step description of the program:</br>
+            <ol>
+             <li>The program starts with the <strong>'#include &lt;stdio.h&gt;'</strong> directive, which includes the standard input/output library in the program. This library provides functions like <strong>'printf()'</strong> and <strong>'scanf()'</strong> that are used for input and output operations.</li>
+  
+             <li>The <strong>'main()'</strong> function is the entry point of the program where the execution begins.</li> 
+  
+             <li>Two integer variables, <strong>'a'</strong> and <strong>'b'</strong>, are declared to store the user input for the two numbers.</li> 
+  
+             <li>The <strong>'printf()'</strong> function is used to display the message "Enter the first number: " to prompt the user to enter the first number.</li> 
+  
+             <li>The <strong>'scanf()'</strong> function is then used to read an integer value from the user and store it in the variable a using the <strong>'%d'</strong> format specifier.</li> 
+  
+             <li>Similarly, the program displays the message "Enter the second number: " and reads the second number from the user, storing it in the variable <strong>'b'</strong>.</li> 
+  
+             <li>The sum of the two numbers, <strong>'a'</strong> and <strong>'b'</strong>, is calculated and stored in the sum variable.</li>
+  
+             <li> Finally, the <strong>'printf()'</strong> function is used to display the result by printing the message "The sum of a and b is: sum" where the values of <strong>'a'</strong>, <strong>'b'</strong>, and <strong>'sum'</strong> are substituted using the <strong>'%d'</strong> format specifier.</li> 
+  
+             <li>The program ends with the <strong>'return 0'</strong>; statement, indicating successful execution and termination of the program.</li> 
+            </ol>
+            
+            When the program is run, it prompts the user to enter two numbers, calculates their sum, and displays the result on the console.</br>
+           </p>
+         </div>
+        </div>
+  
+        <div class="output-section">
+          <h2>Output:</h2>
+          <pre><code class="output">
+            Enter the first number: 2
+            Enter the second number: 3
+            The sum of 2 and 3 is: 5
+          </code></pre>
+        </div>
+     
+      
+      <div class="voting-comment-section">
+        <!-- <h2>Voting Section</h2> -->
+        <button><img src="../images/up.png" alt="up" class="up-logo"><span id="upvoteCount">0</span></button>
+        <button><img src="../images/down.png" alt="down" class="down-logo"><span id="downvoteCount">0</span></button>
+        <button><img src="../images/comment.png" alt="comment" class="comment-logo"></button>
+      </div>
+    </div>
+  
+      <div class="comment-section">
+        <!-- <h2>Comments Section</h2> -->
+        <form>
+          <!-- <label for="comment">Your Comment:</label><br> -->
+          <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
+          <input type="submit" value="Submit">
+        </form>
+        <div id="comments"></div>
+      </div>
+    
+    </main>
+  
+    <footer>
+      <section class="foot">
+        <div class="copyright_msg">Copyright © 2023 Code Sanjal</div>
+        <div class="contact_info">
+          <div class="footer_info">About Us</div>
+          <div>|</div>
+          <div class="footer_info">Contact</div>
+          <div>|</div>
+          <div class="footer_info">Instagram</div>
+          <div>|</div>
+          <div class="footer_info">Terms and services</div>
+        </div>
+      
+      </section>
+    </footer>
+  </body>
+  <script src="../js/script.js"></script>
+</html>

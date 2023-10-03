@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="css/home.css" rel="stylesheet" />
+	</head>
+	<body>
+		<%- include('includes/navigation.ejs') %>
+
+		<main class="main1">
+			<section class="search_area">
+				<section class="search_content">
+					<div class="search_bar">
+						<input type="text" placeholder="Search" />
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							class="w-6 h-6"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+							/>
+						</svg>
+					</div>
+					<section class="search_text">
+						<h1>Search Results:</h1>
+						<h2>
+							Search Keywords:
+							<span class="search_keywords">Top Searches</span>
+						</h2>
+						<h2>
+							Total Results: <span class="total_results">24</span>
+						</h2>
+					</section>
+				</section>
+			</section>
+			<section class="code_area">
+				<section class="code_container">
+					<aside class="left_container">
+						<% for(let i =0;i<peoples.people.length;i++) {%>
+							<% for(let content of peoples.people[i].person.contents) {%>
+								<div class="code_box">
+									<div class="img_section">
+										<img src="../images/dp.JPG" />
+										<h2><%= peoples.people[i].person.name %></h2>
+									</div>
+									<div class="title_section">
+										<h1>
+											<%= content.title %>
+										</h1>
+										<h2><%= content.date %></h2>
+									</div>
+									<div class="code_section">
+										<img src="../images/lang/javascript.png" />
+									</div>
+									<div class="review_section">
+										<h2 class="upvote_text">
+											Upvotes:<span class="upvote"><%= content.upvote %></span>
+										</h2>
+										<h2 class="comment_text">
+											Comments:<span class="comment"><%= content.comments %></span>
+										</h2>
+										<a class="view" href="/view">View</a>
+									</div>
+									<div class="tick">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke-width="1.5"
+											stroke="currentColor"
+											class="w-6 h-6"
+										>
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+											/>
+										</svg>
+									</div>
+								</div>
+							<% } %>
+						<% } %>
+
+
+						<!-- <div class="code_box">
+							<div class="img_section">
+								<img src="../images/dp.JPG" />
+								<h2>Kushal Pariyar</h2>
+							</div>
+							<div class="title_section">
+								<h1>
+									Write a program to print the sum of all
+									nodes in a list
+								</h1>
+								<h2>2023/06/20</h2>
+							</div>
+							<div class="code_section">
+								<img src="../images/javascript.png" />
+							</div>
+							<div class="review_section">
+								<h2 class="upvote_text">
+									Upvotes:<span class="upvote">100</span>
+								</h2>
+								<h2 class="comment_text">
+									Comments:<span class="comment">2</span>
+								</h2>
+								<a class="view" href="/view">View</a>
+							</div>
+							<div class="tick">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									class="w-6 h-6"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+									/>
+								</svg>
+							</div>
+						</div>
+						<div class="code_box">
+							<div class="img_section">
+								<img src="../images/dp.JPG" />
+								<h2>Kushal Pariyar</h2>
+							</div>
+							<div class="title_section">
+								<h1>
+									Write a program to print the sum of all
+									nodes in a list
+								</h1>
+								<h2>2023/06/20</h2>
+							</div>
+							<div class="code_section">
+								<img src="../images/javascript.png" />
+							</div>
+							<div class="review_section">
+								<h2 class="upvote_text">
+									Upvotes:<span class="upvote">100</span>
+								</h2>
+								<h2 class="comment_text">
+									Comments:<span class="comment">2</span>
+								</h2>
+								<h2 class="view">View</h2>
+							</div>
+							<div class="tick">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									class="w-6 h-6"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+									/>
+								</svg>
+							</div>
+						</div>
+						<div class="code_box">
+							<div class="img_section">
+								<img src="../images/dp.JPG" />
+								<h2>Kushal Pariyar</h2>
+							</div>
+							<div class="title_section">
+								<h1>
+									Write a program to print the sum of all
+									nodes in a list
+								</h1>
+								<h2>2023/06/20</h2>
+							</div>
+							<div class="code_section">
+								<img src="../images/javascript.png" />
+							</div>
+							<div class="review_section">
+								<h2 class="upvote_text">
+									Upvotes:<span class="upvote">100</span>
+								</h2>
+								<h2 class="comment_text">
+									Comments:<span class="comment">2</span>
+								</h2>
+								<h2 class="view">View</h2>
+							</div>
+							<div class="tick">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									class="w-6 h-6"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+									/>
+								</svg>
+							</div>
+						</div>
+						<div class="code_box">
+							<div class="img_section">
+								<img src="../images/dp.JPG" />
+								<h2>Kushal Pariyar</h2>
+							</div>
+							<div class="title_section">
+								<h1>
+									Write a program to print the sum of all
+									nodes in a list
+								</h1>
+								<h2>2023/06/20</h2>
+							</div>
+							<div class="code_section">
+								<img src="../images/javascript.png" />
+							</div>
+							<div class="review_section">
+								<h2 class="upvote_text">
+									Upvotes:<span class="upvote">100</span>
+								</h2>
+								<h2 class="comment_text">
+									Comments:<span class="comment">2</span>
+								</h2>
+								<h2 class="view">View</h2>
+							</div>
+							<div class="tick">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									class="w-6 h-6"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+									/>
+								</svg>
+							</div>
+						</div>
+						<div class="code_box">
+							<div class="img_section">
+								<img src="../images/dp.JPG" />
+								<h2>Kushal Pariyar</h2>
+							</div>
+							<div class="title_section">
+								<h1>
+									Write a program to print the sum of all
+									nodes in a list
+								</h1>
+								<h2>2023/06/20</h2>
+							</div>
+							<div class="code_section">
+								<img src="../images/javascript.png" />
+							</div>
+							<div class="review_section">
+								<h2 class="upvote_text">
+									Upvotes:<span class="upvote">100</span>
+								</h2>
+								<h2 class="comment_text">
+									Comments:<span class="comment">2</span>
+								</h2>
+								<h2 class="view">View</h2>
+							</div>
+							<div class="tick">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									class="w-6 h-6"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+									/>
+								</svg>
+							</div>
+						</div> -->
+					</aside>
+					<aside class="right_container">
+						<h1>Filter:</h1>
+						<h2>Language:</h2>
+						<select id="myDropdown">
+							<option value="C">Option 1</option>
+							<option value="option2">Option 2</option>
+							<option value="option3">Option 3</option>
+							<option value="option4">Option 4</option>
+						</select>
+						<h2>Date:</h2>
+						<select id="myDropdown">
+							<option value="C">Option 1</option>
+							<option value="option2">Option 2</option>
+							<option value="option3">Option 3</option>
+							<option value="option4">Option 4</option>
+						</select>
+						<br />
+						<h2>Type:</h2>
+						<select id="myDropdown">
+							<option value="C">Option 1</option>
+							<option value="option2">Option 2</option>
+							<option value="option3">Option 3</option>
+							<option value="option4">Option 4</option>
+						</select>
+					</aside>
+				</section>
+			</section>
+		</main>
+		<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Footer----------------------------------------------------------------------------------------------------------------------------------------------->
+		<footer>
+			<section class="foot">
+				<div class="copyright_msg">Copyright © 2023 Code Sanjal</div>
+				<div class="contact_info">
+					<div class="footer_info">About Us</div>
+					<div>|</div>
+					<div class="footer_info">Contact</div>
+					<div>|</div>
+					<div class="footer_info">Instagram</div>
+					<div>|</div>
+					<div class="footer_info">Terms and services</div>
+				</div>
+				<!-- <div class="country">Nepal 🚩</div> -->
+			</section>
+		</footer>
+	</body>
+	<script src="../js/script.js"></script>
+</html>
+|

@@ -1,0 +1,312 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: 68.5%;
+	/* font-family: ; */
+	/* font-family: "Courier New", Courier, monospace; */
+	/* font-family: "Poppins", sans-serif; */
+	/* font-family: Arial, Helvetica, sans-serif; */
+	font-family: "Inter", sans-serif;
+	font-family: "Roboto", sans-serif;
+}
+:root {
+	--background-color-1: #e0e2e5;
+	--background-color-2: #e6e6e6;
+	--primary-color: #5c5c5c;
+	--secondary-color: #39cccc;
+	--tertiary-color: #288f8f;
+	--fourth-color: #000;
+	--option-input: #fff;
+	--option-border: rgba(40, 143, 143, 0.3);
+	--filler-color: #bfdddd;
+}
+body {
+	background-color: var(--background-color-1);
+}
+/*----------------------------------Header--------------------------*/
+
+/*----------------------------------Navigation--------------------------*/
+nav {
+	width: 100%;
+	background-color: var(--background-color-1);
+	padding-top: 0.5rem;
+}
+.navigation {
+	width: 90%;
+	margin: 0 auto;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	/* justify-content: flex-end; */
+	/* gap: 67rem; */
+	color: var(--primary-color);
+	/* background-color: aqua; */
+	position: relative;
+}
+.navigation a {
+	color: var(--primary-color);
+	text-decoration: none;
+}
+/*----------------------------------Left Navigation--------------------------*/
+.nav_left {
+	display: flex;
+	font-size: 2.3rem;
+	gap: 4rem;
+	align-items: center;
+	/* order: -1; */
+}
+.logo_text {
+	position: relative;
+	/* margin-top: 0.5rem; */
+	margin-right: 12rem;
+	width: 10rem;
+}
+.cs_text {
+	color: var(--fourth-color);
+	position: absolute;
+	top: 2.2rem;
+	width: 20rem;
+	margin-left: 1rem;
+}
+.cs_text .color_diff {
+	color: var(--secondary-color);
+}
+.cs_logo {
+	width: 6.5rem;
+	height: 6.5rem;
+}
+.hover_effect {
+	/* border-bottom: 2px solid black; */
+	padding-bottom: 0.3rem;
+	cursor: pointer;
+	transition: all 0.1s;
+	/* trans */
+}
+.hover_effect:hover {
+	border-bottom: 1px solid var(--tertiary-color);
+}
+/*----------------------------------Right Navigation--------------------------*/
+.nav_right {
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+	/* justify-content: flex-end; */
+	/* flex-wrap: wrap; */
+	/* order: 1; */
+}
+.user_dp_section {
+	display: flex;
+}
+.user_dp {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.user_dp_section svg {
+	color: var(--primary-color);
+	width: 2.5rem;
+	height: 2.5rem;
+	margin-left: 0.2rem;
+	margin-top: 0.8rem;
+	cursor: pointer;
+}
+.bulb {
+	width: 3.5rem;
+	height: 3.5rem;
+	margin-right: 4rem;
+	cursor: pointer;
+}
+.notification {
+	/* padding-top: 1.5rem; */
+	margin-right: 4rem;
+	cursor: pointer;
+}
+.notification svg {
+	width: 3.5rem;
+	height: 3.5rem;
+}
+/* body {
+    background-color: #333333;
+  }
+  h1 {
+    color: #00796b;
+  }
+  h2 {
+    color: #ff9800;
+  } */
+
+/*-----------------------------------------main page--------------------------------*/
+
+main {
+	padding: 0 20px 20px 20px;
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.title-section,
+.code-section,
+.description-section,
+.output-section {
+	margin: 10px;
+}
+
+h3 {
+	margin: 10px;
+}
+
+.post-details {
+	margin: 10px;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------------------code-section---------------------- */
+pre {
+	margin: 20px;
+	background-color: #f2f2f2;
+	padding: auto;
+	overflow-x: auto;
+}
+
+.code-language {
+	font-family: monospace;
+	font-size: 15px;
+}
+
+.code-box {
+	position: relative;
+	background-color: #48cdcd;
+	top: -12px;
+	height: 40px;
+}
+
+.copy-button {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	padding: 5px 10px;
+	background-color: #48cdcd;
+	border: none;
+	color: #fff;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.copy-logo {
+	position: absolute;
+	height: 25px;
+	top: 2px;
+	right: 90px;
+}
+
+/* ----------------------------description-section--------------------- */
+.description {
+	font-size: 15px;
+	margin: 20px 20px 20px 40px;
+}
+
+li {
+	padding: 5px;
+}
+
+/* -------------------------------output-section------------------------ */
+.output {
+	font-family: monospace;
+	font-size: 15px;
+}
+
+/* ----------------------------Comment and voting section-------------- */
+/* Styles for Voting Buttons */
+.voting-comment-section {
+	margin: 40px 10px 1px 10px;
+}
+
+.voting-comment-section button {
+	background-color: var(--secondary-color);
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	margin-right: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.voting-comment-section button:hover {
+	background-color: var(--tertiary-color);
+}
+
+/* Styles for comment section */
+.comment-section {
+	margin: 20px 10px;
+}
+
+.comment-section form {
+	margin-top: 10px;
+}
+
+.comment-section textarea {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid var(--primary-color);
+	border-radius: 5px;
+	resize: none;
+}
+
+.comment-section input[type="submit"] {
+	margin-top: 5px;
+	padding: 5px 10px;
+	background-color: var(--secondary-color);
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.comment-section input[type="submit"]:hover {
+	background-color: var(--tertiary-color);
+}
+
+.comment-section #comments {
+	margin-top: 10px;
+}
+
+.comment-section #comments div {
+	margin: 5px 0;
+}
+
+/*--------------------------------------Footer--------------------*/
+footer {
+	background-color: var(--background-color-2);
+	width: 100%;
+	color: var(--fourth-color);
+	/* height: 2rem; */
+}
+.foot {
+	display: flex;
+	width: 80%;
+	margin: 0 auto;
+	gap: 10rem;
+	margin-bottom: 1rem;
+	/* justify-content: flex-end; */
+}
+.contact_info {
+	display: flex;
+	gap: 2rem;
+	/* cursor: pointer; */
+}
+.footer_info {
+	cursor: pointer;
+}
+.footer_info:hover {
+	border-bottom: 2px solid black;
+}
+.foot .country {
+	align-self: flex-end;
+	/* justify-content: space-between; */
+}

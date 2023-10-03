@@ -1,0 +1,194 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 1496px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* --------------------------------------------Login
+    Page-------------------------------------- */
+  .login-form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .close-btn {
+    position: absolute;
+    right: 510px;
+    top: 170px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .close-btn:hover {
+    color: #3498db;
+  }
+  
+  .username {
+    width: 85%;
+    padding: 10px 10px 10px 40px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    background: url("user.png") no-repeat left center;
+    background-size: 40px;
+  }
+  
+  .password {
+    width: 85%;
+    padding: 10px 10px 10px 40px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    background: url("password.png") no-repeat left center;
+    background-size: 18px;
+    background-position: 10px;
+  }
+  
+  input:hover {
+    border: 1.5px solid;
+  }
+  
+  .login {
+    width: 95%;
+    padding: 10px;
+    background-color: #0f9f14;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .email:hover {
+    background-color: #38c13e;
+  }
+  
+  .signup {
+    width: 25%;
+    padding: 5px;
+    background-color: #fff;
+    color: #0f9f14;
+    border: 1.5px solid #0f9f14;
+    border-radius: 15px;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .signup:hover {
+    background-color: #f9f3f3;
+  }
+  
+  .btn-separator {
+    width: 100%;
+    text-align: center;
+    margin: 20px 20px 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+    line-height: 0.1rem;
+    font-weight: 300;
+  }
+  
+  .btn-separator span {
+    padding: 10px;
+    background: #fff;
+    color: #606060;
+    font-size: 12px;
+  }
+  
+  /* --------------------------------------------Signup
+    Page-------------------------------------- */
+  .signup-form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .login-link {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .login-link a {
+    color: #0095ff;
+    text-decoration: none;
+  }
+  
+  .upload {
+    width: 100px;
+    position: relative;
+    margin: auto auto 20px auto;
+  }
+  
+  .upload img {
+    border-radius: 50%;
+    border: 6px solid #eaeaea;
+  }
+  
+  .upload .round {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #00b4ff;
+    width: 32px;
+    height: 32px;
+    line-height: 33px;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .upload .round input[type="file"] {
+    position: absolute;
+    transform: scale(2);
+    opacity: 0;
+  }
+  
+  input[type="file"]::-webkit-file-upload-button {
+    cursor: pointer;
+  }
+  

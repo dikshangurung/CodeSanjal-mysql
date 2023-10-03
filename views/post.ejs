@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="../css/post.css" rel="stylesheet" />
+	</head>
+	<body>
+		<%- include('includes/navigation.ejs') %>
+		<main class="main3">
+			<form class="content_form" action="/post-content" method="post">
+				<div class="title_input_section input_section">
+					<h2>Title:</h2>
+					<input type="text" class="title_input" name="title_content_save"/>
+				</div>
+				<div class="code_input_section text_input_section plus">
+					<h2>Code:</h2>
+					<textarea class="code_input" name="code_content_save"></textarea>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+						class="w-6 h-6"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+							clip-rule="evenodd"
+						/>
+					</svg>
+				</div>
+				<div class="description_input_section text_input_section plus">
+					<h2>Description:</h2>
+					<textarea class="description_input" name="description_content_save"> </textarea>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+						class="w-6 h-6"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+							clip-rule="evenodd"
+						/>
+					</svg>
+				</div>
+				<div class="output_input_section text_input_section plus">
+					<h2>Output:</h2>
+					<textarea class="output_input" name="output_content_save"></textarea>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+						class="w-6 h-6"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+							clip-rule="evenodd"
+						/>
+					</svg>
+				</div>
+				<section class="content_form_last"></section>
+				<div class="code_used_input">
+					<span>Code Used:</span>
+					<select id="myDropdown">
+						<option value="C">C</option>
+						<option value="javascript">JavaScript</option>
+						<option value="c++">C++</option>
+						<option value="pearl">Pearl</option>
+					</select>
+				</div>
+				<button class="submit-btn">Submit</button>
+			</form>
+		</main>
+		<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Footer----------------------------------------------------------------------------------------------------------------------------------------------->
+		<footer>
+			<section class="foot">
+				<div class="copyright_msg">Copyright © 2023 Code Sanjal</div>
+				<div class="contact_info">
+					<div class="footer_info">About Us</div>
+					<div>|</div>
+					<div class="footer_info">Contact</div>
+					<div>|</div>
+					<div class="footer_info">Instagram</div>
+					<div>|</div>
+					<div class="footer_info">Terms and services</div>
+				</div>
+				<!-- <div class="country">Nepal 🚩</div> -->
+			</section>
+		</footer>
+	</body>
+	<script src="../js/script.js"></script>
+</html>
