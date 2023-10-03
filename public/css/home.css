@@ -13,8 +13,10 @@ html {
 	font-family: "Roboto", sans-serif;
 }
 :root {
-	--background-color-1: #e0e2e5;
-	--background-color-2: #e6e6e6;
+	/* --background-color-1: #e0e2e5; */
+	--background-color-1: #fdfdfd;
+	/* --background-color-2: #e6e6e6; */
+	--background-color-2: #fafafa;
 	--primary-color: #5c5c5c;
 	--secondary-color: #39cccc;
 	--tertiary-color: #288f8f;
