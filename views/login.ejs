@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet " type="text/css" href="/css/login-signup.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <form class="login-form" action="/auth/login" method="POST">
+        <a for="show" class="close-btn fas fa-times" title="close" href="/"></a>
+        <h1>Login in to CodeSanjal</h1>
+        <h2><%= message %></h2>
+        <div class="form-group">
+          <input class="username" type="email" id="email" name="email" placeholder="Email" required />
+        </div>
+        <div class="form-group">
+          <input class="password" type="password" id="password" name="password" placeholder="Password" required />
+			  </div>
+        <button class="login" type="submit">Log in
+        </button>
+        <p class="btn-separator">
+          <span>Don't have a CodeSanjal account?</span>
+        </p>
+        <p class="signup-link">
+          <a class="signup" href="/signup">Sign Up</a>
+        </p>
+      </form>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,448 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: 68.5%;
+	/* font-family: ; */
+	/* font-family: "Courier New", Courier, monospace; */
+	/* font-family: "Poppins", sans-serif; */
+	/* font-family: Arial, Helvetica, sans-serif; */
+	font-family: "Inter", sans-serif;
+	font-family: "Roboto", sans-serif;
+}
+:root {
+	--background-color-1: #e0e2e5;
+	--background-color-2: #e6e6e6;
+	--primary-color: #5c5c5c;
+	--secondary-color: #39cccc;
+	--tertiary-color: #288f8f;
+	--fourth-color: #000;
+	--option-input: #fff;
+	--option-border: rgba(40, 143, 143, 0.3);
+	--filler-color: #bfdddd;
+}
+body {
+	background-color: var(--background-color-1);
+}
+/*----------------------------------Header--------------------------*/
+
+/*----------------------------------Navigation--------------------------*/
+nav {
+	width: 100%;
+	background-color: var(--background-color-1);
+	padding-top: 0.5rem;
+}
+.navigation {
+	width: 90%;
+	margin: 0 auto;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	/* justify-content: flex-end; */
+	/* gap: 67rem; */
+	color: var(--primary-color);
+	/* background-color: aqua; */
+	position: relative;
+}
+.navigation a {
+	color: var(--primary-color);
+	text-decoration: none;
+}
+/*----------------------------------Left Navigation--------------------------*/
+.nav_left {
+	display: flex;
+	font-size: 2.3rem;
+	gap: 4rem;
+	align-items: center;
+	/* order: -1; */
+}
+.logo_text {
+	position: relative;
+	/* margin-top: 0.5rem; */
+	margin-right: 12rem;
+	width: 10rem;
+}
+.cs_text {
+	color: var(--fourth-color);
+	position: absolute;
+	top: 2.2rem;
+	width: 20rem;
+	margin-left: 1rem;
+}
+.cs_text .color_diff {
+	color: var(--secondary-color);
+}
+.cs_logo {
+	width: 6.5rem;
+	height: 6.5rem;
+}
+.hover_effect {
+	/* border-bottom: 2px solid black; */
+	padding-bottom: 0.3rem;
+	cursor: pointer;
+	transition: all 0.1s;
+	/* trans */
+}
+.hover_effect:hover {
+	border-bottom: 1px solid var(--tertiary-color);
+}
+/*----------------------------------Right Navigation--------------------------*/
+.nav_right {
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+	/* justify-content: flex-end; */
+	/* flex-wrap: wrap; */
+	/* order: 1; */
+}
+.user_dp_section {
+	display: flex;
+}
+.user_dp {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.user_dp_section svg {
+	color: var(--primary-color);
+	width: 2.5rem;
+	height: 2.5rem;
+	margin-left: 0.2rem;
+	margin-top: 0.8rem;
+	cursor: pointer;
+}
+.bulb {
+	width: 3.5rem;
+	height: 3.5rem;
+	margin-right: 4rem;
+	cursor: pointer;
+}
+.notification {
+	/* padding-top: 1.5rem; */
+	margin-right: 4rem;
+	cursor: pointer;
+}
+.notification svg {
+	width: 3.5rem;
+	height: 3.5rem;
+}
+
+/*-----------------------------------------main page--------------------------------*/
+
+main {
+	width: 80%;
+	margin: 0 auto;
+	/* padding: 0 2rem 2rem 2rem; */
+	font-size: 1rem;
+	position: relative;
+	/* font-family: Arial, Helvetica, sans-serif; */
+}
+
+.title-section,
+.code-section,
+.description-section,
+.output-section {
+	margin: 0.6rem;
+}
+
+h3 {
+	margin: 0.6rem;
+}
+
+.post-details {
+	margin: 0.6rem;
+	background-color: var(--option-input);
+	padding: 1.2rem;
+	border-radius: 0.3rem;
+	box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.1);
+}
+
+.title-section {
+	color: var(--fourth-color);
+}
+.title-section h1 {
+	font-size: 3rem;
+}
+
+.language_logo img {
+	width: 5rem;
+	height: 5rem;
+	position: absolute;
+	right: 3rem;
+	top: 1rem;
+	/* width: 5%;
+	height: 5%;
+	margin-top: -3rem;
+	margin-left: 97rem;
+	border-radius: 50%; */
+}
+
+.subtitle-section {
+	color: var(--fourth-color);
+}
+.subtitle p {
+	font-size: 2.2rem;
+	font-weight: 600;
+	margin: 1.3rem 1.3rem 1.3rem 2.5rem;
+}
+/* ---------------------------code-section---------------------- */
+
+.code-section {
+	color: var(--fourth-color);
+	max-width: 90rem;
+	max-height: 100rem;
+	overflow-x: auto;
+	overflow: auto;
+}
+
+pre {
+	width: 90%;
+	margin-left: 1.2rem;
+	background-color: var(--background-color-2);
+	overflow-x: auto;
+	/* padding: auto;
+	overflow-x: auto; */
+}
+
+.code-language {
+	font-family: monospace;
+	font-size: 1.5rem;
+}
+
+.code-box {
+	/* width: 60%; */
+
+	position: relative;
+	background-color: var(--secondary-color);
+	top: -1.2rem;
+	/* height: 3.5rem; */
+}
+
+.copy-button {
+	position: absolute;
+	top: 0.3rem;
+	right: 1rem;
+	padding: 0.3rem 0.9rem;
+	background-color: var(--secondary-color);
+	border: none;
+	color: #fff;
+	font-size: 1.4rem;
+	cursor: pointer;
+}
+
+/* ----------------------------description-section--------------------- */
+.description-section {
+	color: var(--fourth-color);
+}
+
+.description {
+	font-size: 1.6rem;
+	margin: 1.3rem 1.3rem 1.3rem 2.5rem;
+}
+
+/* -------------------------------output-section------------------------ */
+.output-section {
+	color: var(--fourth-color);
+}
+
+.output {
+	font-size: 1.3rem;
+	font-family: monospace;
+}
+
+/*--------------------------------------Footer--------------------*/
+footer {
+	background-color: var(--background-color-2);
+	width: 100%;
+	color: var(--fourth-color);
+	/* height: 2rem; */
+}
+.foot {
+	display: flex;
+	width: 50%;
+	margin: 0 auto;
+	gap: 10rem;
+	margin-bottom: 1rem;
+	/* justify-content: flex-end; */
+}
+.contact_info {
+	display: flex;
+	gap: 2rem;
+	/* cursor: pointer; */
+}
+.footer_info {
+	cursor: pointer;
+}
+.footer_info:hover {
+	border-bottom: 2px solid var(--fourth-color);
+}
+.foot .country {
+	align-self: flex-end;
+	/* justify-content: space-between; */
+}
+
+/* ----------------------------Comment and voting section-------------- */
+/* Styles for Voting Buttons */
+.voting-comment-section {
+	display: flex;
+}
+
+.voting-comment-section .user-review {
+	margin-left: 85rem;
+}
+
+.voting-comment-section button {
+	border: none;
+	padding: 0.5rem 1rem;
+	margin-left: 1rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+.user-review h3{
+	display: inline-block;
+	font-size: 2rem;
+	color: var(--fourth-color);;
+}
+#up-logo,
+#down-logo,
+#comment-logo {
+	height: 1.5rem;
+	width: 1.5rem;
+}
+#up-logo {
+	width: 2.5rem;
+	height: 2.5rem;
+	background-color: #efefef;
+	cursor: pointer;
+}
+/* Styles for comment section */
+.comment-section {
+	margin: 1.5rem 0.6rem;
+	font-family: Arial, Helvetica, sans-serif;
+	color: var(--fourth-color);
+}
+
+.comment-section form {
+	margin: 0.6rem;
+}
+
+.comment-section #comment {
+	width: 100%;
+	padding: 0.5rem;
+	border: 0.06rem solid var(--primary-color);
+	border-radius: 0.5rem;
+	resize: none;
+	background-color: var(--background-color-2);
+	color: var(--fourth-color);
+}
+
+.comment-section input[type="submit"] {
+	margin-top: 0.5rem;
+	padding: 0.5rem 0.7rem;
+	background-color: var(--secondary-color);
+	color: #ffff;
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+.comment-section input[type="submit"]:hover {
+	background-color: var(--tertiary-color);
+}
+
+.comment-view {
+	border: 0.03rem solid var(--option-input);
+	border-radius: 0.5rem;
+	background-color: var(--option-input);
+	margin-top: 0.5rem;
+}
+.comments {
+	box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.1);
+	border-radius: 0.5rem;
+	padding: 0.7rem;
+	margin: 0.5rem 0.5rem;
+	background-color: var(--background-color-2);
+	font-size: 0.7rem;
+}
+
+.comment_img_section {
+	border-radius: 50%;
+	height: 3.5rem;
+	width: 3.7rem;
+}
+
+.profile-name {
+	position: relative;
+	top: -2.1rem;
+	left: 0.8rem;
+	font-weight: bold;
+	font-size: 1.3rem;
+}
+
+.comment-display {
+	font-size: 1.2rem;
+	margin-top: -1.2rem;
+	margin-left: 4.6rem;
+}
+
+.comment-section-voting {
+	display: flex;
+	margin-left: 117rem;
+}
+.comment-section-voting button {
+	border: none;
+	padding: 0.5rem 0.7rem;
+	border-radius: 0.5rem;
+	margin-left: 1.2rem;
+	cursor: pointer;
+}
+
+.up-logo,
+.down-logo,
+.comment-logo {
+	height: 1.3rem;
+	width: 1.3rem;
+}
+/*------------------------------------Style for admin view page---------------- */
+.admin-review {
+	margin-left: 2rem;
+}
+/* 
+.admin-user-review {
+	margin-left: 87rem;
+} */
+.admin-review {
+	display: flex;
+	gap: 2rem;
+	/* align-items: center; */
+}
+.admin-review a {
+	text-decoration: none;
+	font-size: 1.6rem;
+	background-color: var(--secondary-color);
+	height: 4rem;
+	padding-top: 1rem;
+	width: 5rem;
+	text-align: center;
+	border-radius: 0.5rem;
+	/* align-items: center; */
+
+	/* padding: 0.5rem; */
+}
+/* .review input[type="submit"] {
+	margin-top: 0.5rem;
+	padding: 0.5rem 0.7rem;
+	background-color: var(--secondary-color);
+	color: #ffff;
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	margin-right: 0.6rem;
+}
+
+.review input[type="submit"]:hover {
+	background-color: var(--tertiary-color);
+} */

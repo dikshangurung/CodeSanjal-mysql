@@ -1,0 +1,218 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  html {
+    font-size: 68.5%;
+    /* font-family: ; */
+    /* font-family: "Courier New", Courier, monospace; */
+    /* font-family: "Poppins", sans-serif; */
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: "Inter", sans-serif;
+    font-family: "Roboto", sans-serif;
+  }
+  :root {
+    --background-color-1: #e0e2e5;
+    --background-color-2: #e6e6e6;
+    --primary-color: #5c5c5c;
+    --secondary-color: #39cccc;
+    --tertiary-color: #288f8f;
+    --fourth-color: #000;
+    --option-input: #fff;
+    --option-border: rgba(40, 143, 143, 0.3);
+    --filler-color: #bfdddd;
+  }
+  body {
+    background-color: var(--background-color-1);
+  }
+  
+  .container {
+    width: 130rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* --------------------------------------------Login
+    Page-------------------------------------- */
+  .login-form {
+    background-color: var(--option-input);
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+  
+  .close-btn {
+    position: relative;
+    right: -19rem;
+    top: -2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .close-btn:hover {
+    background-color: var(--tertiary-color);
+  }
+  
+  .username {
+    width: 85%;
+    padding: 0.7rem 0.7rem 0.7rem 3.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0.4rem;
+    border: 0.06rem solid var(--filler-color);
+    background: url("../images/user.png") no-repeat left center;
+    background-size: 3.5rem;
+  }
+  
+  .password {
+    width: 85%;
+    padding: 0.7rem 0.7rem 0.7rem 3.5rem;
+    margin-bottom: 1.2rem;
+    border-radius: 0.4rem;
+    border: 0.06rem solid var(--filler-color);
+    background: url("../images/password.png") no-repeat left center;
+    background-size: 1.6rem;
+    background-position: 0.7rem;
+  }
+  
+  input:hover {
+    border: 0.08rem solid;
+  }
+  
+  .login {
+    width: 95%;
+    padding: 0.7rem;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 1.5rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+  
+  .login:hover {
+    background-color: var(--tertiary-color);
+  }
+  
+  .signup {
+    width: 25%;
+    padding: 0.5rem;
+    background-color: var(--option-input);
+    color: var(--secondary-color);
+    border: 0.1rem solid var(--secondary-color);
+    border-radius: 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .signup:hover {
+    background-color: var(--option-border);
+  }
+  
+  .btn-separator {
+    width: 85%;
+    text-align: center;
+    margin: 1.7rem 1.7rem 1.7rem 2.9rem;
+    border-bottom: 0.03rem solid #e0e0e0;
+    line-height: 0.1rem;
+    font-weight: 300;
+  }
+  
+  .btn-separator span {
+    padding: 0.7rem;
+    background: var(--option-input);
+    color: #606060;
+    font-size: 1.1rem;
+  }
+  
+  /* --------------------------------------------Signup
+    Page-------------------------------------- */
+  .signup-form {
+    background-color: var(--option-input);
+    padding: 2.5rem;
+    width: 35%;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 3.5rem;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1.1rem;
+    border-radius: 0.3rem;
+    border: 0.09rem solid var(--background-color-1);
+  }
+  
+  button {
+    width: 70%;
+    padding: 0.7rem;
+    background-color: var(--secondary-color);
+    color: var(--option-input);
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    margin-top: 1.5rem;
+  }
+  
+  button:hover {
+    background-color: var(--tertiary-color);
+  }
+  
+  .login-link {
+    margin-top: 1.3rem 1.3rem 1.3rem;
+    font-size: 1.4rem;
+  }
+  
+  .login-link a {
+    color: var(--secondary-color);
+    text-decoration: none;
+  }
+  
+  .upload {
+    width: 8.9rem;
+    position: relative;
+    margin: 1.3rem 1.3rem 1.3rem 16rem;
+  }
+  
+  .upload img {
+    border-radius: 50%;
+    border: 0.3rem solid var(--secondary-color);
+  }
+  
+  .upload .round {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--tertiary-color);
+    width: 3.2rem;
+    height: 3.2rem;
+    line-height: 3.3rem;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .upload .round input[type="file"] {
+    position: absolute;
+    transform: scale(2);
+    opacity: 0;
+  }
+  
+  input[type="file"]::-webkit-file-upload-button {
+    cursor: pointer;
+  }
+  

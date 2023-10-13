@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="/css/profile.css" rel="stylesheet" />
+	</head>
+	<body>
+		<%- include('includes/navigation.ejs') %>
+
+		<main class="main2">
+			<section class="user_portfolio">
+				<aside class="cleft">
+					<div class="user_data">
+						<img src="<%= user_image %>" />
+						<h1><%= user_name %></h1>
+						<h2><%= totalUpvotes %> upvotes</h2>
+						<h2><%= totalComments %> comments</h2>
+						<div class="social-links">
+							<div class="social">
+							  <a
+								href="https://www.linkedin.com/in/yourlinkedinprofile"
+								target="_blank"
+								class="social-icon"
+								><img src="/images/linkedin-icon.png" alt="LinkedIn" />
+							  </a>
+			  
+							  <a
+								href="https://github.com/yourgithubprofile"
+								target="_blank"
+								class="social-icon"
+								><img src="/images/github-icon.png" alt="GitHub" />
+							  </a>
+							</div>
+			  
+							<div class="social_web">
+							  <a
+								href="https://www.yourwebsite.com"
+								target="_blank"
+								class="social-icon"
+								>www.codesanjal.com
+							  </a>
+							</div>
+						  </div>
+						<div class="edit_profile">Edit Profile</div>
+					</div>
+				</aside>
+				<aside class="cright">
+					<div class="user_content">
+						<div class="boxes">
+							<div class="codes_box box">
+								<h1>All Codes:</h1>
+								<span class="total_codes"
+									><%= totalPosts %></span
+								>
+							</div>
+							<div class="verified_box box">
+								<h1>Not Verified:</h1>
+								<span class="total_verified"
+									><%= totalNotVerifiedPosts %></span
+								>
+							</div>
+							<div class="notification_box box">
+								<h1>Notification:</h1>
+								<span class="total_notification">2</span>
+							</div>
+							<div class="moderator_req box">
+								<h1>Moderator<br />Request</h1>
+							</div>
+						</div>
+						<div class="content_box">
+							<div class="code_content">
+								<% if(posts_arr.length > 0) {%>
+									<% for(const posts of posts_arr){ %>
+										<div class="code_box">
+											<div class="img_section">
+												<img src=<%= posts.image %> />
+												<h2><%= posts.name%></h2>
+											</div>
+											<div class="title_section">
+												<h1>
+													<%= posts.title %>
+												</h1>
+												<h2><%= posts.date %></h2>
+											</div>
+											<div class="code_section">
+												<img
+												src="/images/lang/<%= posts.language %>.png"
+												/>
+											</div>
+											<div class="review_section">
+												<h2 class="upvote_text">
+													Upvotes:<span class="upvote"><%= posts.upvote %></span>
+												</h2>
+												<h2 class="comment_text">
+													Comments:<span class="comment"><%= posts.comments %></span>
+												</h2>
+												<a class="view" href="/view/<%= posts.post_id %>">View</a>
+												<a class="view" href="/edit/<%= posts.post_id %>">Edit</a>
+												<a class="view" href="/delete/<%= posts.post_id %>">Delete</a>
+												<!-- <form action="/view" method="POST">
+													<input type="hidden" name="post_id" value=<%= posts.post_id %>/>
+													<h2 class="view">View</h2>
+												</form> -->
+											</div>
+											<div class="tick">
+												<% if(posts.status === "warning") {%>
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+														<path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+													  </svg>
+													  
+												<% }else if(posts.status === "verified") {%>
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+														<path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+													  </svg>
+													  
+												<% } %>
+											</div>
+										</div>
+									<% } %>
+								<%}else{%>
+									<h1 class="nothing">Nothing to show...</h1>
+								<% } %>
+							</div>
+							<!------Not Verified content----------------------------------------------------------------------------------------------------->
+							
+							<div class="verified_content">
+								<% if(post_arr_notVerified.length > 0) {%>
+									<% for(const posts of post_arr_notVerified){ %>
+										<div class="code_box">
+											<div class="img_section">
+												<img src=<%= posts.image %> />
+												<h2><%= posts.name%></h2>
+											</div>
+											<div class="title_section">
+												<h1>
+													<%= posts.title %>
+												</h1>
+												<h2><%= posts.date %></h2>
+											</div>
+											<div class="code_section">
+												<img
+													src="/images/lang/javascript.png"
+												/>
+											</div>
+											<div class="review_section">
+												<h2 class="upvote_text">
+													Upvotes:<span class="upvote"><%= posts.upvote %></span>
+												</h2>
+												<h2 class="comment_text">
+													Comments:<span class="comment"><%= posts.comments %></span>
+												</h2>
+												<a class="view" href="/view/<%= posts.post_id %>">View</a>
+												<a class="view" href="/edit/<%= posts.post_id %>">Edit</a>
+												<a class="view" href="/delete/<%= posts.post_id %>">Delete</a>
+												<!-- <form action="/view" method="POST">
+													<input type="hidden" name="post_id" value=<%= posts.post_id %>/>
+													<h2 class="view">View</h2>
+												</form> -->
+											</div>
+											<div class="tick">
+												<% if(posts.status === "warning") {%>
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+														<path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+													</svg>
+													
+												<% }else if(posts.status === "verified") {%>
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+														<path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+													</svg>
+													
+												<% } %>
+											</div>
+										</div>
+									<% } %>
+								<% }else{%>
+									<h1 class="nothing">Nothing to show...</h1>
+								<% } %>
+							</div>
+							<!------Notifications----------------------------------------------------------------------------------------------------->
+							<div class="notification_content">
+								<div class="notifications">
+									<div class="img_section">
+										<img src="../images/dp.JPG" />
+										<h2>Admin</h2>
+									</div>
+									<div class="title_section">
+										<h1>
+											Your code titled 'Counting nodes in
+											the linked list ' has been approved
+											by the review community
+										</h1>
+										<h2>2023/06/20</h2>
+									</div>
+								</div>
+								<div class="notifications">
+									<div class="img_section">
+										<img src="../images/dp.JPG" />
+										<h2>Admin</h2>
+									</div>
+									<div class="title_section">
+										<h1>
+											Your code titled 'Counting nodes in
+											the linked list ' has been approved
+											by the review community
+										</h1>
+										<h2>2023/06/20</h2>
+									</div>
+								</div>
+							</div>
+							<!------Moderator Request----------------------------------------------------------------------------------------------------->
+							<div class="moderator_req_content">
+								<div class="mod_req">
+									<h1>Do you want to help the community?</h1>
+									<h2>Become a moderator</h2>
+									<h2>
+										But first you need to meet the following
+										requirements
+									</h2>
+								</div>
+								<div class="mod_req_content">
+									<div class="mod_req_left">
+										<div
+											class="circle outer_circle circle1"
+										>
+											<div class="inner_circle">
+												<span class="score p1score"
+													>25%</span
+												>
+											</div>
+										</div>
+									</div>
+
+									<div class="mod_req_right">
+										<div class="check_boxes">
+											<div class="check_box">✔</div>
+											<h2>Have an account</h2>
+										</div>
+										<div class="check_boxes completed">
+											<div class="check_box">✔</div>
+											<h2>10 total codes posted</h2>
+										</div>
+										<div class="check_boxes">
+											<div class="check_box">✔</div>
+											<h2>
+												Gave 10 comments to other codes
+											</h2>
+										</div>
+										<div class="check_boxes">
+											<div class="check_box">✔</div>
+											<h2>Have atleast 50 upvotes</h2>
+										</div>
+										<a class="req_mod_btn" href="/reqMod/<%= user_id %>">
+											Request moderatorship
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</aside>
+				<div class="edit_profile_option">
+					<form>
+					  <h1>Edit Profile</h1>
+					  <label
+						for="show"
+						class="close_btn fas fa-times"
+						title="close"
+					  ></label>
+					  <label for="name">Name:</label>
+					  <input type="text" id="name" name="name" required />
+		  
+					  <label for="email">Email:</label>
+					  <input type="email" id="email" name="email" required />
+		  
+					  <div class="social-media-section">
+						<label for="linkedin">LinkedIn:</label>
+						<input type="text" id="linkedin" name="linkedin" />
+		  
+						<label for="github">github:</label>
+						<input type="text" id="github" name="github" />
+		  
+						<label for="website">Website:</label>
+						<input type="text" id="website" name="website" />
+					  </div>
+		  
+					  <label for="user-photo">User Photo:</label>
+					  <input type="file" id="user-photo" name="user-photo" />
+		  
+					  <div class="button-section">
+						<input type="submit" value="Submit" />
+						<input type="button" value="Cancel" id="cancel" />
+					  </div>
+					</form>
+				  </div>
+			</section>
+		</main>
+		<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Footer----------------------------------------------------------------------------------------------------------------------------------------------->
+		<footer>
+			<section class="foot">
+				<div class="copyright_msg">Copyright © 2023 Code Sanjal</div>
+				<div class="contact_info">
+					<div class="footer_info">About Us</div>
+					<div>|</div>
+					<div class="footer_info">Contact</div>
+					<div>|</div>
+					<div class="footer_info">Instagram</div>
+					<div>|</div>
+					<div class="footer_info">Terms and services</div>
+				</div>
+				<!-- <div class="country">Nepal 🚩</div> -->
+			</section>
+		</footer>
+	</body>
+	<script src="../js/script.js"></script>
+</html>

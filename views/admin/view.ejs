@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/css/view.css" rel="stylesheet" />
+  </head>
+  <body>
+    <%- include('../includes/navigation.ejs') %>
+    <main class="main">
+      <div class="post-details">
+        <% for (const key of post_position_arr) { %>
+          <div class="title-section">
+            <% if (key.post_type === "title") { %>
+              <h1><%= key[key.post_type] %></h1>
+            <% } %>
+            <% if (key.post_type === "language_used"){ %>
+              <div class="language_logo">
+                <img src="/images/lang/javascript.png" />
+              </div>
+            <% } %>
+          </div>
+          <% if(key.post_type === "subtitle" && key[key.post_type] !==""){ %>
+            <div class="description-section">
+              <div class="description">
+                <p>
+                  <%= key[key.post_type] %>
+                </p>
+              </div>
+            </div>
+          <% } %>
+          <% if(key.post_type === "code" && key[key.post_type] !==""){ %>
+            <div class="code-section">
+              <pre>
+              <div class="code-box">
+                <button class="copy-button"><img src="/images/copy.png" alt="copy" class="copy-logo"></button>
+              </div>
+              <code class="code-language">
+              <%= key[key.post_type] %>
+              </code></pre>
+            </div>
+          <% } %>
+          <% if(key.post_type === "description" && key[key.post_type] !==""){ %>
+            <div class="description-section">
+              <div class="description">
+                <p>
+                  <%= key[key.post_type] %>
+                </p>
+              </div>
+            </div>
+          <% } %>
+          <% if(key.post_type === "output" && key[key.post_type] !==""){ %>
+            <div class="output-section">
+              <h2>Output:</h2>
+              <pre><code class="output">
+                <%= key[key.post_type] %>  
+              </code></pre>
+            </div>
+          <% } %>
+          <% if(key.post_type === "upvote"){ %>
+            <div class="voting-comment-section">
+                <div class="admin-review">
+                    <a href="/admin/verify/<%= post_id %>">Verify</a>
+                    <a href="/admin/error/<%= post_id %>">Error</a>
+                    <!-- <form class="review">
+                      <input type="submit" value="Accept" />
+                      <input type="submit" value="Decline" />
+                      <input type="submit" value="Verify" />
+                    </form> -->
+                  </div>
+              <div class="user-review">
+                <h3><%= key[key.post_type] %></h3>
+                <a href="/upvote/<%= post_id %>">
+                  <img src="/images/up.png" alt="up" id="up-logo" />
+                </a>
+                <button>
+                  <img src="/images/down.png" alt="down" id="down-logo" />
+                </button>
+                <button>
+                  <a href="#"
+                    ><img
+                      src="/images/comment.png"
+                      alt="comment"
+                      id="comment-logo"
+                  /></a>
+                </button>
+              </div>
+            </div>
+          <% } %>
+        <% } %>
+      </div>
+
+      <div class="comment-section">
+        <div class="comment-view">
+          <form action="/comment" method="post">
+            <input type="hidden" value="<%= post_id %>" name="post_id">
+            <input type="hidden" name="comment_by_user" value="<%= user_name %>">
+            <!-- <input type="hidden" name="postId" value="2"/> -->
+            <textarea
+              id="comment"
+              placeholder="Write a comment..."
+              name="post_comment"
+              rows="2"
+              cols="50"
+            ></textarea>
+            <button type="submit">Submit</button>
+          </form>
+          <% for(const comment of comments_arr){ %>
+            <div class="comments">
+              <div>
+                <img src="<%= comment.user_image %>" class="comment_img_section" />
+                <span class="profile-name"><%= comment.name %></span>
+              </div>
+
+              <div class="comment-display">
+                <p><%= comment.comment %></p>
+              </div>
+            </div>
+          <% } %>
+          
+        </div>
+      </div>
+    </main>
+  
+    <footer>
+      <section class="foot">
+        <div class="copyright_msg">Copyright © 2023 Code Sanjal</div>
+        <div class="contact_info">
+          <div class="footer_info">About Us</div>
+          <div>|</div>
+          <div class="footer_info">Contact</div>
+          <div>|</div>
+          <div class="footer_info">Instagram</div>
+          <div>|</div>
+          <div class="footer_info">Terms and services</div>
+        </div>
+      
+      </section>
+    </footer>
+  </body>
+  <script src="/js/script.js"></script>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="codemirror-5.65.15/lib/codemirror.css" rel="stylesheet" />
+		<!-- <link href="../codemirror-5.65.15/theme/dracula.css" rel="stylesheet" /> -->
+		<script src="codemirror-5.65.15/lib/codemirror.js"></script>
+		<!-- <script src="../codemirror-5.65.15/mode/xml/xml.js"></script> -->
+		<script src="codemirror-5.65.15/mode/javascript/javascript.js"></script>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="/css/post.css" rel="stylesheet" />
+	</head>
+	<body>
+		<%- include('includes/navigation.ejs') %>
+		<main class="main3">
+			<form class="content_form" action="/post-content" method="post">
+				<div class="title_input_section input_section">
+					<h2>Title:</h2>
+					<input
+						type="text"
+						class="title_input"
+						name="title_content_save"
+					/>
+				</div>
+				<div class="subtitle_input_section input_section">
+					<h2>Sub Title:</h2>
+					<input
+						type="text"
+						class="subtitle_input"
+						name="subtitle_content_1save"
+					/>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+						class="w-6 h-6 plus"
+						data-class="subTitle"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+							clip-rule="evenodd"
+						/>
+					</svg>
+				</div>
+				<div class="code_input_section text_input_section">
+					<h2>Code:</h2>
+					<textarea
+						class="code_input editor"
+						name="code_content_2save"
+					></textarea>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+						class="w-6 h-6 plus"
+						data-class="code"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+							clip-rule="evenodd"
+						/>
+					</svg>
+				</div>
+				<div class="description_input_section text_input_section">
+					<h2>Description:</h2>
+					<textarea
+						class="description_input"
+						name="description_content_3save"
+						onclick="this.selectionStart = 0; this.selectionEnd = 0; this.focus();"
+					>
+					</textarea>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+						class="w-6 h-6 plus"
+						data-class="description"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+							clip-rule="evenodd"
+						/>
+					</svg>
+				</div>
+				<div class="output_input_section text_input_section">
+					<h2>Output:</h2>
+					<textarea
+						class="output_input"
+						name="output_content_4save"
+						onclick="if (this.value.length === 0) { this.selectionStart = 0; this.selectionEnd = 0; this.focus(); }"
+					></textarea>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+						class="w-6 h-6 plus"
+						data-class="output"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+							clip-rule="evenodd"
+						/>
+					</svg>
+				</div>
+				<div class="code_used_input">
+					<span>Code Used:</span>
+					<select id="myDropdown" name="selectedOption">
+						<option value="C">C</option>
+						<option value="javascript">JavaScript</option>
+						<option value="C++">C++</option>
+						<option value="pearl">Pearl</option>
+						<option value="php">Php</option>
+					</select>
+				</div>
+				<button class="submit-btn">Submit</button>
+			</form>
+		</main>
+
+		<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Footer----------------------------------------------------------------------------------------------------------------------------------------------->
+		<footer>
+			<section class="foot">
+				<div class="copyright_msg">Copyright © 2023 Code Sanjal</div>
+				<div class="contact_info">
+					<div class="footer_info">About Us</div>
+					<div>|</div>
+					<div class="footer_info">Contact</div>
+					<div>|</div>
+					<div class="footer_info">Instagram</div>
+					<div>|</div>
+					<div class="footer_info">Terms and services</div>
+				</div>
+				<!-- <div class="country">Nepal 🚩</div> -->
+			</section>
+		</footer>
+	</body>
+	<script src="/js/script.js"></script>
+	<script src="/js/post.js"></script>
+</html>

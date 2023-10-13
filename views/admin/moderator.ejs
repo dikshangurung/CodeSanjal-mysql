@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="/css/moderator.css" rel="stylesheet" />
+	</head>
+	<body>
+		<%- include('../includes/navigation.ejs') %>
+
+		<main class="main2">
+			<section class="main_container">
+				<% if(posts.length > 0){ %>
+					<% for(const post of posts){ %>
+						<div class="code_box">
+							<div class="img_section">
+								<img src="/images/dp.JPG" />
+								<h2><%= post.user_name %></h2>
+							</div>
+							<div class="title_section">
+								<h1>I would like to be a Moderator</h1>
+								<h2><%= post.requestDate %></h2>
+							</div>
+							<div class="review_section">
+								<a class="approve" href="/admin/approve/<%= post.user_id %>"
+									>Approve</a
+								>
+								<a class="decline" href="/admin/decline/<%= post.user_id %>"
+									>Decline</a
+								>
+								<a class="view_profile">View Profile</a>
+							</div>
+						</div>
+					<% } %>
+				<% }else{ %>
+					<h1 class="nothing">Nothing to show...</h1>
+				<% } %>
+			</section>
+		</main>
+		<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Footer----------------------------------------------------------------------------------------------------------------------------------------------->
+		<footer>
+			<section class="foot">
+				<div class="copyright_msg">Copyright © 2023 Code Sanjal</div>
+				<div class="contact_info">
+					<div class="footer_info">About Us</div>
+					<div>|</div>
+					<div class="footer_info">Contact</div>
+					<div>|</div>
+					<div class="footer_info">Instagram</div>
+					<div>|</div>
+					<div class="footer_info">Terms and services</div>
+				</div>
+				<!-- <div class="country">Nepal 🚩</div> -->
+			</section>
+		</footer>
+	</body>
+	<script src="../js/script.js"></script>
+</html>
+|

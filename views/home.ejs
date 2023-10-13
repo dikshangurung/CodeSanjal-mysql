@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="/css/home.css" rel="stylesheet" />
+	</head>
+	<body>
+		<%- include('includes/navigation.ejs') %>
+
+		<main class="main1">
+			<section class="search_area">
+				<section class="search_content">
+					<form action="/search" method="post">
+						<div class="search_bar">
+							<input type="text" placeholder="Search" name="search"/>
+							<button type="submit">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									class="w-6 h-6"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+									/>
+								</svg>
+							</button>
+						</div>
+					</form>
+					<section class="search_text">
+						<h1>Search Results:</h1>
+						<h2>
+							Search Keywords:
+							<span class="search_keywords"><%= search %></span>
+						</h2>
+						<h2>
+							Total Results: <span class="total_results"><%= totalPosts %></span>
+						</h2>
+					</section>
+				</section>
+			</section>
+			<section class="code_area">
+				<div class="top-slider">
+					<a class="prev-button" href="#"
+						><button>&ltPrevious Page</button></a
+					>
+					<a class="next-button" href="#"
+						><button>Next Page&gt</button></a
+					>
+				</div>
+				<section class="code_container">
+					<aside class="left_container">
+						<% for(const posts of posts_arr){ %>
+							<div class="code_box">
+								<div class="img_section">
+									<img src=<%= posts.image %> />
+									<h2><a href="/viewprofile/<%= posts.user_id %>"><%= posts.name%></a></h2>
+								</div>
+								<div class="title_section">
+									<h1>
+										<%= posts.title %>
+									</h1>
+									<h2><%= posts.date %></h2>
+								</div>
+								<div class="code_section">
+									<img
+										src="/images/lang/<%= posts.language %>.png"
+									/>
+								</div>
+								<div class="review_section">
+									<h2 class="upvote_text">
+										Upvotes:<span class="upvote"><%= posts.upvote %></span>
+									</h2>
+									<h2 class="comment_text">
+										Comments:<span class="comment"><%= posts.comments %></span>
+									</h2>
+									<a class="view" href="/view/<%= posts.post_id %>">View</a>
+									<!-- <form action="/view" method="POST">
+										<input type="hidden" name="post_id" value=<%= posts.post_id %>/>
+										<h2 class="view">View</h2>
+									</form> -->
+								</div>
+								<div class="tick">
+									<% if(posts.status === "warning") {%>
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+											<path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+										  </svg>
+										  
+									<% }else if(posts.status === "verified") {%>
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+											<path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+										  </svg>
+										  
+									<% } %>
+								</div>
+							</div>
+						<% } %>
+						
+					</aside>
+
+					<aside class="right_container">
+						<h1>Filter:</h1>
+						<h2>Per page:</h2>
+						<input
+							type="range"
+							id="weight"
+							min="0"
+							value="0"
+							max="10"
+							step="1"
+							list="volsettings"
+						/>
+						<!-- <datalist id="volsettings">
+					  <option>0</option>
+					  <option>1</option>
+					  <option>2</option>
+					  <option>3</option>
+					</datalist> -->
+						<h2>Language:</h2>
+						<select id="myDropdown">
+							<option value="C">C++</option>
+              				<option value="option2">Javascript</option>
+              				<option value="option3">Css</option>
+              				<option value="option4">Html</option>
+						</select>
+						<h2>Date:</h2>
+						<select id="myDropdown">
+							<option value="option4">New</option>
+              				<option value="C">Old</option>
+						</select>
+						<br />
+						<h2>Type:</h2>
+						<select id="myDropdown">
+							<option value="option3">All</option>
+              				<option value="C">Verified</option>
+              				<option value="option2">Error</option>
+						</select>
+						<br>
+						<button>Submit</button>
+					</aside>
+				</section>
+			</section>
+		</main>
+		<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Footer----------------------------------------------------------------------------------------------------------------------------------------------->
+		<footer>
+			<section class="foot">
+				<div class="copyright_msg">Copyright © 2023 Code Sanjal</div>
+				<div class="contact_info">
+					<div class="footer_info">About Us</div>
+					<div>|</div>
+					<div class="footer_info">Contact</div>
+					<div>|</div>
+					<div class="footer_info">Instagram</div>
+					<div>|</div>
+					<div class="footer_info">Terms and services</div>
+				</div>
+				<!-- <div class="country">Nepal 🚩</div> -->
+			</section>
+		</footer>
+	</body>
+	<script src="../js/script.js"></script>
+</html>
+|
